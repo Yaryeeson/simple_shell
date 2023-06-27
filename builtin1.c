@@ -1,6 +1,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <string.h>
+#include "shell.h"
 
 /**
 *cd - Change the current working directory.

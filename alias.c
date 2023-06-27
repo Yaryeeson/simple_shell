@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
+#include "shell.h"
 
 /**
 * alias - define aliases

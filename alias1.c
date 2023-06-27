@@ -1,6 +1,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include "shell.h"
 
 /**
 * replace_variables - replace environment variables in command

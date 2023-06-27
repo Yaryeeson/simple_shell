@@ -3,6 +3,7 @@
 #include <string.h>
 #include <unistd.h>
 #include <sys/wait.h>
+#include "shell.h"
 
 #define MAX_COMMAND_LENGTH 100
 
@@ -61,7 +62,7 @@ int tokenize_command(char *command, char *args[])
 
 	args[argCount] = NULL;
 
-	return argCount;
+	return (argCount);
 }
 
 /*
