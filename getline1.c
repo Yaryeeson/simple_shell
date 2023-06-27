@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <stdio.h>
+#include "shell.h"
 
 /** 
 * getline - read a line of text fromuser
@@ -42,29 +43,25 @@ char *getline(void)
 * Return: success 0, non-zero on error
 */
 
-int get_command(char *command)
+int main(void)
 {
+	char *command;
+
+	while (1)
+	{
 	printf("ky_shell$");
 	fflush(stdout);
 	command = getline();
+	if (command == NULL)
+	{
+	break;
 	}
-	
-int execute_command(char *command)
+	void get_args(char *command, char *args[])
 {
-	pid_t pid = fork();
-
-	if (pid < 0)
-	{
-	perror("fork");
-	exit(EXIT_FAILURE);
-	}
-	if (pid == 0)
-	{
-	char *args[10];
 	int y = 0;
 	char *p = command;
 
-	while (*p = != '\0')
+	while (*p != '\0')
 	{
 	if (*p == ' ')
 	{
@@ -76,11 +73,20 @@ int execute_command(char *command)
 	p++;
 	}
 	}
-	args[y] = NULL;
+	void execute_command(char *args[])
+{
+	pid_t pid = fork();
 
+	if (pid < 0)
+	{
+	perror("fork");
+	exit(EXIT_FAILURE);
+	}
+	exit if (pid == 0)
+	{
 	if (execvp(args[0], args) < 0)
 	{
-	printf("command not found: %s\n", args[0]);
+	printf("command not found; %s\n", args[0]);
 	exit(EXI_FAILURE);
 	}
 	}
@@ -88,20 +94,6 @@ int execute_command(char *command)
 	{
 	waitpid(pid, NULL, 0);
 	}
-	}
-
-int main(void)
-{
-	char *command;
-
-	while (1)
-	{
-	get_command(command);
-	if (command == NULL)
-	{
-	break;
-	}
-	execute_command(command);
 	}
 	return (0);
 }

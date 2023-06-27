@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
+#include "shell.h"
 
 /**
 * getline - reads a line of text from the user
